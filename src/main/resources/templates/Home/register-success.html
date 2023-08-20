@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Exitoso</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+    <link rel="stylesheet" type="text/css" href="/css/registerstyle.css">
+</head>
+<body>
+    <header>
+        <p class="success-message"><strong>Registro Exitoso!</strong></p>
+    </header>
+    <main>
+        <h2 style="text-align: center;"><span th:text="${usuario.nombre}"></span>, ¡Bienvenido a ChampionshipCraft!</h2>
+        <img src="/imagenes/logo.jpg" alt="Logo">
+        <h2 style="text-align: center;">Te has registrado correctamente.</h2>
+        <h2 style="text-align: center;">Datos:</h2>
+        <div class="info-container">
+            <p><span>Nombre:</span> <span th:text="${usuario.nombre}"></span></p>
+            <p><span>Apellido:</span> <span th:text="${usuario.apellidos}"></span></p>
+            <p><span>Usuario:</span> <span th:text="${usuario.username}"></span></p>
+            <p><span>Correo:</span> <span th:text="${usuario.correo}"></span></p>
+            <!-- <p><span>Contraseña:</span> <span th:text="${usuario.contraseña}"></span></p> -->
+            <a href="/login">Haz clic aquí para ir iniciar sesión.</a>
+        </div>
+    </main>
+    <footer>
+        <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package edu.idat.pe.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import edu.idat.pe.model.Usuario;
+
+@Repository
+
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+    Optional<Usuario> findByUsername(String username);
+    Optional<Usuario> findByIdUsuario(Integer idUsuario);
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Posiciones</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/tablaPosiciones.css">
+</head>
+<body>
+<header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+        <ul class="barra-menu">
+            <li>
+            	<a href="/home">Inicio</a>
+                <a href="/torneo">Torneo</a>
+          		<a href="/seguirTorneo">Seguir Torneo</a>
+          		<a href="/consulta">Contactos</a>
+          		<a href="/FAQ">FAQ</a>
+            </li>
+            <li class="login-logout" sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+            </li>
+            <li class="login-logout" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<h1>Tabla de Posiciones</h1>
+<div class="container mt-5">
+    <table class="table table-striped table-hover " style="border: 1px solid black; margin-top: 40px;">
+        <thead class="thead-dark">
+            <tr >
+                <th scope="col">Equipo</th>
+                <th scope="col">PJ</th>
+                <th scope="col">Puntos</th>
+                <th scope="col">Partidos Ganados</th>
+                <th scope="col">Partidos Perdidos</th>
+                <th scope="col">Partidos Empatados</th>
+                <th scope="col">Goles a Favor</th>
+                <th scope="col">Goles en Contra</th>
+                <th scope="col">Diferencia de Goles</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr th:each="posicion : ${tablaPosiciones}">
+                <td th:text="${posicion.nombreEquipo}" class="align-middle"></td>
+                <td th:text="${posicion.pj}" class="align-middle"></td>
+                <td th:text="${posicion.puntos}" class="align-middle"></td>
+                <td th:text="${posicion.g}" class="align-middle"></td>
+                <td th:text="${posicion.p}" class="align-middle"></td>
+                <td th:text="${posicion.e}" class="align-middle"></td>
+                <td th:text="${posicion.gf}" class="align-middle"></td>
+                <td th:text="${posicion.gc}" class="align-middle"></td>
+                <td th:text="${posicion.df}" class="align-middle"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<section class="social-media">
+    <ul>
+        <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+        <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+        <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+</footer>
+</body>
+</html>

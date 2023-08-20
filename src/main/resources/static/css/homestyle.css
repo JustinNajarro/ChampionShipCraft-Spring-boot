@@ -1,0 +1,467 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Arial';
+}
+:root{
+    scroll-behavior: smooth;
+}
+header {
+  background-color: white;
+  color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.barra-navegacion {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 50px; /* Ajusta la altura de la barra de navegación según tus necesidades */
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 20px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.barra-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.barra-menu li {
+    margin: 0 10px;
+}
+
+.barra-menu a {
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.barra-menu a:hover {
+    background-color: #37ecba;
+    color: #fff;
+}
+/*Sobre Nosotros*/
+
+.titulo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contenedor-nosotros {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.checklist-nosotros {
+  flex: 1;
+  margin-right: 50px;
+}
+
+.nosotros p {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.check-nosotros p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.check-nosotros i {
+  margin-right: 10px;
+  color: #37ecba;
+}
+
+img {
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+}
+.sub {
+  text-align: left; /* Cambiamos "center" por "left" */
+  font-weight: 300;
+  color: rgb(51, 255, 0);
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+/*Pie de Pagina*/
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  color: #333;
+  font-size: 14px;
+  margin: 0;
+}
+
+
+/*Inicio*/
+.hero {
+  background-image: url("/imagenes/torneo.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  align-items: flex-end; /* Alineación en la parte inferior */
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 50px; /* Espacio en la parte inferior del contenedor */
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin: 0;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Redes-Sociales */
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  margin-right: -10px; /* Ajuste para compensar el espacio adicional */
+}
+
+.social-media ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.social-media a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.social-media i {
+  margin-bottom: 5px;
+  color: black;
+}
+
+/*Nuestro-Servicio*/
+.contenedor{
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    padding: 60px 0;
+    padding-bottom: 0.1px;
+}
+.contenedor-servicio{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.contenedor-servicio img{
+    width: 50%;
+}
+.checklist-servicio{
+    width: 45%;
+}
+.service{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.n-servicios{
+    margin-bottom: 7px;
+    color: rgb(51, 255, 0);
+    text-align: left;
+}
+.number{
+    display: inline-block;
+    background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    line-height: 30px;
+    margin-right: 5px;
+}
+.subtitulo{
+    text-align: center;
+    font-weight: 300;
+    color: rgb(51, 255, 0);
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+.line{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 2px;
+    background: #000000;
+}
+#servicio {
+  padding-bottom: 80px; /* Ajusta el valor según el espaciado deseado */
+}
+/* Planes */
+.contenedor-planes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plan-titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.plan-descripcion {
+  margin-bottom: 20px;
+}
+
+.plan-precio {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.plan-enlace {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #37ecba;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.barra-navegacion-planes {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.barra-navegacion-planes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.barra-navegacion-planes li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.barra-navegacion-planes a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.barra-navegacion-planes a:hover {
+  background-color: #37ecba;
+  color: #fff;
+}
+
+.contenedor-planes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.line-plan {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 1200px;
+  height: 2px;
+  background: #000000;
+}
+
+.plan-icon-container {
+  width: 60px;
+  height: 60px;
+  background-color: #37ecba;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.plan-icon {
+  font-size: 30px;
+  color: #fff;
+}
+
+
+/*Modal Sistema de pago*/
+.modal{
+  position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:#111111bd;
+	display:flex;
+	opacity:0;
+	pointer-events:none;
+}
+
+.modal-show{
+	opacity:1;
+	pointer-events:unset;
+}
+
+.modal-container{
+	margin:auto;
+	width:90%;
+	max-width:600px;
+	max-height:90%;
+	border-radius:6px;
+	padding: 35px;
+	grid-auto-columns: 100%;
+  display:flex;
+	justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-container .title{
+  font-size: 20px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.modal-container .modal-input{
+  margin: 15px 0;
+  margin-top: 5px;
+}
+
+.modal-container .modal-input input[readonly]{
+  background-color: lightgray;
+  color: darkgray;
+  border: 1px solid gray;
+}
+
+.modal-container .modal-input span[value="input"]{
+  margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+}
+
+.modal-container .modal-input input[type="text"],[type="number"]{
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-size: 15px;
+}
+
+.modal-container .modal-input input:focus{
+  border: 1px solid #000000;
+}
+
+.modal-container .modal-input span[value="radio"]{
+  padding: 0 10px;
+}
+
+.modal-container .modal-flex{
+  display: flex;
+  gap: 15px;
+}
+
+.modal-container img{
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.modal-container #modal-price{
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 5px 5px;
+}
+
+.modal-submit-btn {
+  width: 49%;
+  padding: 12px;
+  font-size: 17px;
+  margin-top: 15px;
+  background-color: #00C040;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-submit-btn:hover {
+  background-color: #009530;
+}
+
+.modal-close-btn {
+  width: 49%;
+  padding: 12px;
+  font-size: 17px;
+  margin-top: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #0056b3;
+}

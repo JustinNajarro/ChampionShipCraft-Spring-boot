@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preguntas Frecuentes</title>
+<link rel="stylesheet" type="text/css" href="/css/faq.css"> 
+<link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+        <ul class="barra-menu">
+            <li>
+            	<a href="/home">Inicio</a>
+                <a href="/torneo">Torneo</a>
+          		<a href="/seguirTorneo">Seguir Torneo</a>
+          		<a href="/consulta">Contactos</a>
+          		<a href="/FAQ">FAQ</a>
+            </li>
+            <li class="login-logout" sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+            </li>
+            <li class="login-logout" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<h1>Preguntas Frecuentes</h1>
+<div class="faq-container">
+    <div class="container">
+        <div class="tab">
+            <input type="radio" name="acc" id="acc1">
+            <label for="acc1">
+                <h2>01</h2>
+                <h3>¿Cómo puedo crear un nuevo torneo en la plataforma?</h3>
+            </label>
+            <div class="content">
+                <p>Para crear un nuevo torneo en ChampionShip Craft, sigue estos pasos:</p>
+                <p><i class="fa-solid fa-circle"></i> Inicia sesión en tu cuenta de ChampionShip Craft. Si aún no tienes una cuenta, puedes registrarte fácilmente en el sitio web.</p>
+                <p><i class="fa-solid fa-circle"></i> Una vez que hayas iniciado sesión, navega al apartado "Torneo" en la barra de navegación superior.</p>
+                <p><i class="fa-solid fa-circle"></i> Haz clic en el icono "+" para crear torneo. Esto te llevará al formulario de creación de torneo.</p>
+                <p><i class="fa-solid fa-circle"></i> Rellena el formulario de creación del torneo con la información necesaria. Esto incluye los datos relevantes de la organización y el nombre del torneo.</p>
+                <p><i class="fa-solid fa-circle"></i> Configura tu torneo a tu medida. Esto incluye el tipo de torneo (11 vs 11, 6 vs 6, etc), el número de equipos participantes y el monto del premio para el ganador.</p>
+                <p><i class="fa-solid fa-circle"></i> Una vez que estés satisfecho con la información proporcionada, haz clic en el botón "Registrar".</p>
+                <p><i class="fas fa-exclamation-triangle"></i> Revisa cuidadosamente los detalles ingresados y asegúrate de que estén correctos.</p>              
+                <p><i class="fa-solid fa-star"></i> ¡Felicidades! Acabas de crear exitosamente un nuevo torneo en ChampionShip Craft. Ahora puedes proceder a registrar equipos, inscribir jugadores, generar el fixture y tendrás una tabla de posiciones.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <div class="tab">
+        <input type="radio" name="acc" id="acc2">
+        <label for="acc2">
+            <h2>02</h2>
+            <h3>¿Cómo puedo registrar equipos participantes y delegados?</h3>
+        </label>
+        <div class="content">
+            <p>Después de crear exitosamente un torneo en ChampionShip Craft, puedes registrar equipos participantes y sus delegados siguiendo estos pasos:</p>
+            <p><i class="fa-solid fa-circle"></i> Navega al torneo específico que has creado y dale click en boton con el icono de "Configuración"</p>
+            <p><i class="fa-solid fa-circle"></i> Luego te redirigira a la pagina de "Administracion de Torneos"</p>
+            <p><i class="fa-solid fa-circle"></i> Una vez ahi se te mostrar el formulario de registro de Delegado y Equipo, además de muchas opciones disponibles</p>
+            <p><i class="fa-solid fa-circle"></i> Guarda la información del delegado y equipo.</p>
+            <p><i class="fa-solid fa-circle"></i> Repite estos pasos para registrar todos los equipos participantes y sus respectivos delegados.</p>
+            <p><i class="fa-solid fa-circle"></i> Para visualizar los equipos que has registrado dale click al icono de "Menu" y seleccionando la opción "Equipos"</p>
+            <p><i class="fas fa-exclamation-triangle"></i> Recuerda revisar la información ingresada antes de guardarla para asegurarte de que esté correcta.</p>
+            <p><i class="fa-solid fa-star"></i> ¡Listo! Ahora tienes registrados los equipos participantes y sus delegados en el torneo.</p>
+            
+        </div>
+    </div>
+	</div>
+	<div class="container">
+    <div class="tab">
+        <input type="radio" name="acc" id="acc3">
+        <label for="acc3">
+            <h2>03</h2>
+            <h3>¿Cómo inscribo a los jugadores en un equipo?</h3>
+        </label>
+        <div class="content">
+            <p>Una vez que hayas registrado equipos y delegados en tu torneo, podrás proceder a inscribir a los jugadores siguiendo estos pasos:</p>
+            <p><i class="fa-solid fa-circle"></i> En el icono de "Menu" dale click y podras observar las diferentes opciones de "Administrar Torneo".</p>
+            <p><i class="fa-solid fa-circle"></i> Selecciona la opción "Equipo", ahi se mostraran los equipos que has inscrito, además de un boton "Inscribir Jugadores"</p>
+            <p><i class="fa-solid fa-circle"></i> Haz clic en "Inscribir Jugadores" y completa el formulario con los datos del jugador, como nombre y apellido, número de documento, posición, número de camiseta.</p>
+            <p><i class="fa-solid fa-circle"></i> Una vez que hayas ingresado la información del jugador, confirma la inscripción.</p>
+            <p><i class="fa-solid fa-circle"></i> Repite estos pasos para inscribir a todos los jugadores que formarán parte del equipo participante.</p>
+            <p><i class="fas fa-exclamation-triangle"></i> Recuerda verificar la precisión de los datos antes de confirmar la inscripción.</p>
+            <p><i class="fa-solid fa-star"></i> ¡Enhorabuena! Has inscrito exitosamente jugadores en el equipo. Ahora estarán listos para participar en los partidos.</p>
+        </div>
+    </div>
+	</div>
+	<div class="container">
+    <div class="tab">
+        <input type="radio" name="acc" id="acc4">
+        <label for="acc4">
+            <h2>04</h2>
+            <h3>¿Cómo generar el fixture de encuentros para un torneo?</h3>
+        </label>
+        <div class="content">
+            <p>La generación del fixture de partidos es crucial para organizar los encuentros en un torneo. Sigue estos pasos para generar el fixture en ChampionShip Craft:</p>
+            <p><i class="fa-solid fa-circle"></i> Visualiza el torneo al cual quieres generar un fixture. En la columna "Acciones" podras observar las diferentes opciones para torneo</p>
+            <p><i class="fa-solid fa-circle"></i> Dale click a "Fixture", eso te redigira a la pagina para generar </p>
+            <p><i class="fa-solid fa-circle"></i> Una vez alli podras observar un botón "Generar Fxture", y un combo box vacio (alli se mostraran las jornadas)</p>
+            <p><i class="fa-solid fa-circle"></i> Recuerda el fixture solo se generara si tienes equipos inscritos en el torneo</p>
+            <p><i class="fa-solid fa-circle"></i> Dale click a l boton "Generar fixture", el fixture se generara de manera automática</p>
+            <p><i class="fa-solid fa-circle"></i> En el combo box podras intercambiar entre las diferentes jornadas</p>
+            <p><i class="fa-solid fa-circle"></i> Ahora podras observar en una tabla los encuentros generados, con su respectiva información</p>
+            <p><i class="fas fa-exclamation-triangle"></i> Recuerda el fixture no se generara si no tienes equipos registrados en el torneo.</p>
+            <p><i class="fa-solid fa-star"></i> ¡Listo! Has generado exitosamente el fixture de partidos para el torneo en ChampionShip Craft. Los equipos y jugadores estarán listos para competir según el calendario establecido.</p>
+        </div>
+    </div>
+	</div>
+	<div class="container">
+    <div class="tab">
+        <input type="radio" name="acc" id="acc5">
+        <label for="acc5">
+            <h2>05</h2>
+            <h3>¿Cómo registrar los resultados de los encuentros?</h3>
+        </label>
+        <div class="content">
+            <p>Es importante registrar los resultados para mantener actualizada la tabla de posiciones y avanzar en el torneo. Sigue estos pasos para registrar los resultados en ChampionShip Craft:</p>
+            <p><i class="fa-solid fa-circle"></i> Si has generado el fixture se mostraran los encuentros dependiendo a lo seleccionado en el combo box</p>
+            <p><i class="fa-solid fa-circle"></i> Busca el encuentro específico para el cual deseas registrar el resultado.</p>
+            <p><i class="fa-solid fa-circle"></i> Ingresa el score en el input que se encuentran en las columnas "Goles de Visita" y "Goles de Local"</p>
+            <p><i class="fa-solid fa-circle"></i> Confirma el registro del resultado para guardar la información.</p>
+            <p><i class="fa-solid fa-circle"></i> Si el resultado del partido es correcto, presionar el boton "Guardar Resultado"</p>
+            <p><i class="fa-solid fa-circle"></i> Repite estos pasos para registrar los resultados de los encuentros jugados en el torneo.</p>
+            <p><i class="fas fa-exclamation-triangle"></i> Recuerda verificar que los resultados ingresados sean correctos antes de confirmar. Esto puede alterar la tabla de posiciones</p>
+            <p><i class="fa-solid fa-star"></i> ¡Listo! Has registrado exitosamente los resultados de los partidos en ChampionShip Craft. La tabla de posiciones y los siguientes emparejamientos se actualizarán automáticamente según los resultados.</p>
+        </div>
+    </div>
+	</div>
+	<div class="container">
+    <div class="tab">
+        <input type="radio" name="acc" id="acc6">
+        <label for="acc6">
+            <h2>06</h2>
+            <h3>¿Cómo funciona la tabla de posiciones y su actualización automática?</h3>
+        </label>
+        <div class="content">
+            <p>En ChampionShip Craft, la tabla de posiciones se actualiza automáticamente en función de los resultados de los encuentros. Sigue estos pasos para entender su funcionamiento:</p>
+            <p><i class="fa-solid fa-circle"></i> La tabla de posiciones muestra la posición de cada equipo en el torneo en función de los puntos acumulados.</p>
+            <p><i class="fa-solid fa-circle"></i> Después de cada partido, los equipos ganan puntos según el resultado: 3 puntos por victoria, 1 punto por empate y 0 puntos por derrota.</p>
+            <p><i class="fa-solid fa-circle"></i> La diferencia de goles también se tiene en cuenta para desempatar equipos con la misma cantidad de puntos.</p>
+            <p><i class="fa-solid fa-circle"></i> La tabla de posiciones se actualiza automáticamente después de registrar los resultados de los partidos.</p>
+            <p><i class="fa-solid fa-circle"></i> Puedes acceder a la tabla de posiciones desde "Torneo" en la columna "Acciones", veras un boton "Posiciones"</p>
+            <p><i class="fa-solid fa-circle"></i> Al darle click en "Posiciones", te dirigira a la vista de donde podras encontrar las tabla de pociones del correspondiente torneo</p>
+            <p><i class="fa-solid fa-circle"></i> La tabla muestra información como la posición, el nombre del equipo,los partidos jugados, puntos , victorias, empates, derrotas, goles a favor, goles en contra y diferencia de goles.</p>
+            <p><i class="fa-solid fa-circle"></i> Es una herramienta útil para evaluar la posición de los equipos y su rendimiento en el torneo a lo largo del tiempo.</p>
+            <p><i class="fas fa-exclamation-triangle"></i> Recuerda que la tabla de posiciones es dinámica y se actualiza automáticamente después de cada resultado de partido registrado.</p>
+            <p><i class="fa-solid fa-star"></i> ¡Listo! Ahora puedes utilizar la tabla de posiciones para seguir el progreso de los equipos en el torneo y cómo los resultados afectan su posición en la clasificación.</p>
+        </div>
+    </div>
+	</div>
+</div>
+<section class="social-media">
+    <ul>
+        <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+        <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+        <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+</footer>
+</body>
+</html>

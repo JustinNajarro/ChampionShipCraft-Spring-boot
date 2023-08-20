@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS';
+  overflow: auto;
+}
+
+.contenedor {
+  display: flex;
+  height: 100vh;
+}
+
+.bloque-left {
+  flex: 2.5;
+  background-image: url("../imagenes/primerfondo.jpg");
+  background-size: cover;
+  background-position: left;
+}
+
+.bloque-right {
+  flex: 1;
+  background-color: rgb(73, 106, 206);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 2%;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h1 {
+  color: white;
+  margin-top: 0;
+  font-size: 3vw;
+}
+
+h2 {
+  color: white;
+  margin-top: 0;
+  font-size: 1.5vw;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2vw;
+  display: block;
+}
+
+.login-form {
+  padding: 2%;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.bloque-right input {
+  padding: 2%;
+  margin-bottom: 2%;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.bloque-right button {
+  padding: 1% 5%;
+  font-size: 1.5vw;
+  color: white;
+  border: none;
+  background-color: black;
+  box-shadow: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2%;
+  
+}
+
+button[name="btLogin"],
+button[name="btRegistrarse"] {
+  color: white;
+  background-color: transparent;
+  box-shadow: none;
+  
+}
+button[name="btLogin"]{
+  position: absolute; 
+  top: 3%; 
+  left: 80%; 
+  transform: translate(-50%, -50%); 
+	
+}
+button[name="btRegistrarse"]{
+  position: absolute; 
+  top: 3%; 
+  left: 90%; 
+  transform: translate(-50%, -50%); 
+}
+
+button[name="btLogin"]:hover,
+button[name="btRegistrarse"]:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  padding: 5px 5px;
+}
+
+button[name="btIniciarSesion"]:active {
+  color: black;
+  background-color: white;
+}
+
+.boton-activo {
+  background-color: black;
+  color: white;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input {
+  padding-left: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-container i {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-70%);
+  color: #999;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 9999;
+  display: none;/*El problema esta en esta linea de codigo cuando lo quito si me aparecen los mensajes, pero me carga por defecto al iniciar la pantalla login*/
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.error {
+  background-color: #ffcccc;
+  color: #ff0000;
+}
+
+.success {
+  background-color: #ccffcc;
+  color: #00cc00;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+button[name="btRegistrarseForm"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[name="btRegistrarseForm"]:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

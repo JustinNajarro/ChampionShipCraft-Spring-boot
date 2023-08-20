@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Torneos</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+    <!-- Enlace a la hoja de estilo de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Enlace a tu hoja de estilo personalizada si es necesario -->
+    <link rel="stylesheet" type="text/css" href="/css/seguirTorneo.css"> 
+
+</head>
+<body>
+    <header>
+	    <img src="/imagenes/logo.jpg" alt="Logo">
+	    <nav class="barra-navegacion">
+	        <ul class="barra-menu">
+	            <li>
+	            	<a href="/home">Inicio</a>
+	                <a href="/torneo">Torneo</a>
+          			<a href="/seguirTorneo">Seguir Torneo</a>
+          			<a href="/consulta">Contactos</a>
+          			<a href="/FAQ">FAQ</a>
+	            </li>
+	            <li class="login-logout" sec:authorize="isAuthenticated()">
+	                <a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+	            </li>
+	            <li class="login-logout" sec:authorize="!isAuthenticated()">
+	                <a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+	            </li>
+	        </ul>
+	    </nav>
+	</header>
+    <h1>Sigue tu Torneo Favorito</h1>
+    <!-- Barra de búsqueda -->
+	<div class="container mt-4">
+	    <form id="searchForm">
+	        <div class="input-group mb-3">
+	            <input type="text" class="form-control" id="searchInput" placeholder="Buscar torneo">
+	            <div class="input-group-append">
+	                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+	            </div>
+	        </div>
+	    </form>
+	</div>
+    
+
+    <!-- Lista de torneos con fixture en una tabla de Bootstrap -->
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre del Torneo</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="torneo : ${torneosConFixture}" class="torneo-row">
+                <td th:text="${torneo.nombreTorneo}" class="nombre-torneo"></td>
+                <td th:text="${torneo.direccion}" class="direccion-torneo"></td>
+                <td>
+                    <!-- Para ver el fixture -->
+					<a th:href="@{/seguirFixture(idTorneo=${torneo.idTorneo})}" class="btn btn-primary">Ver Fixture</a>
+                    <a th:href="@{/tablaPosiciones(idTorneo=${torneo.idTorneo})}" class="btn btn-secondary">Ver Tabla</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+    <!-- Archivo de JavaScript de Bootstrap (opcional) -->
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const input = document.getElementById("searchInput");
+            const torneos = document.querySelectorAll(".torneo-row");
+
+            input.addEventListener("input", function () {
+                const searchTerm = input.value.toLowerCase();
+
+                torneos.forEach(function (torneo) {
+                    const nombre = torneo.querySelector(".nombre-torneo").textContent.toLowerCase();
+                    const direccion = torneo.querySelector(".direccion-torneo").textContent.toLowerCase();
+
+                    if (nombre.includes(searchTerm) || direccion.includes(searchTerm)) {
+                        torneo.style.display = "table-row";
+                    } else {
+                        torneo.style.display = "none";
+                    }
+                });
+            });
+        });
+
+</script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

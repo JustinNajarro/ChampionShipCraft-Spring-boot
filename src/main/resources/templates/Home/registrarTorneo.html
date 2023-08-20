@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/registrarstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+      <ul class="barra-menu">
+    		<li>
+    			<a href="/home">Inicio</a>
+		        <a href="/torneo">Torneo</a>
+          		<a href="/seguirTorneo">Seguir Torneo</a>
+          		<a href="/consulta">Contactos</a>
+          		<a href="/FAQ">FAQ</a>
+    		</li>
+    		<li class="login-logout" sec:authorize="isAuthenticated()">
+    			<a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+    		</li>
+      		<li class="login-logout" sec:authorize="!isAuthenticated()">
+      			<a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+      		</li>
+	  </ul>
+    </nav>
+  </header>
+<h1>Formulario de Registro</h1>
+<form th:action="@{/torneo/registrar}" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombreOrg">Nombre de la Organización:</label>
+                    <input type="text" id="nombreOrg" name="nombreOrg" class="form-control" maxlength="150" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoDocumento">Tipo de Documento:</label>
+                    <select id="tipoDocumento" name="tipoDocumento" class="form-control" required>
+                        <option value="DNI">DNI</option>
+                        <option value="Carnet de Extranjería">Carnet de Extranjería</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="RUC">R.U.C</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="numDocumento">Número de Documento:</label>
+                    <input type="text" id="numDocumento" name="numDocumento" class="form-control" maxlength="8" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" class="form-control" maxlength="9" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombreTorneo">Nombre del Torneo:</label>
+                    <input type="text" id="nombreTorneo" name="nombreTorneo" class="form-control" maxlength="150" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" class="form-control" maxlength="150" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoTorneo">Tipo de Torneo:</label>
+                    <input type="text" id="tipoTorneo" name="tipoTorneo" class="form-control" maxlength="150" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cantidadEquipos">Cantidad de Equipos:</label>
+                    <input type="number" id="cantidadEquipos" name="cantidadEquipos" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="montoPremio">Monto del Premio:</label>
+                    <input type="text" id="montoPremio" name="montoPremio" class="form-control" maxlength="20" required>
+                </div>
+
+            </div>
+        </div>
+    </div>
+	<input type="hidden" id="idTorneo" name="idTorneo" th:value="${idTorneo}" />
+    <div class="button-container">
+        <input type="submit" value="Registrar" class="btn btn-primary">
+    </div>
+</form>
+
+<section class="social-media">
+    <ul>
+        <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+        <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+        <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+</footer>
+</body>
+</html>

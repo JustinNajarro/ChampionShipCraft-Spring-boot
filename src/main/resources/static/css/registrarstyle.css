@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Arial';
+  overflow-x: hidden; 
+}
+
+
+header {
+  background-color: white;
+  color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.barra-navegacion {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 50px; /* Ajusta la altura de la barra de navegación según tus necesidades */
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 20px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.barra-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.barra-menu li {
+    margin: 0 10px;
+}
+
+.barra-menu a {
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.barra-menu a:hover {
+    background-color: #37ecba;
+    color: #fff;
+}
+
+h1 {
+  background-color: #00C040;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+  margin: 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+  margin-left: 110px;
+
+}
+
+
+.form-column-left,
+.form-column-right {
+  flex: 0 0 48%;
+  padding:10px;
+}
+
+.form-column-left label,
+.form-column-right label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-column-left input,
+.form-column-right input,
+.form-column-left select,
+.form-column-right select {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.button-container input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #00C040;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container input[type="submit"]:hover {
+  background-color: #009530;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+
+}
+
+.social-media ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.social-media a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.social-media i {
+  margin-bottom: 5px;
+  color: white;
+}
+
+footer {
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+}
+
+
+footer p {
+  background-color: black;
+  color: white;
+}
+#torneos-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+#torneos-dropdown a {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  
+}
+#torneos-dropdown a:hover {
+ background-color: #f2f2f2;
+}
+#equipos-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+#equipos-dropdown a {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+#equipos-dropdown a:hover {
+ background-color: #f2f2f2;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-button {
+  margin: 0 10px;
+}

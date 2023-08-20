@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+    <link rel="stylesheet" type="text/css" href="/css/contact.css"> <!--/css/contact.css-->
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+	    <img src="/imagenes/logo.jpg" alt="Logo">
+	    <nav class="barra-navegacion">
+	      <ul class="barra-menu">
+	    		<li>
+	    			<a href="/home">Inicio</a>
+	    			<a href="/torneo">Torneo</a>
+			        <a href="/seguirTorneo">Seguir Torneo</a>
+			        <a href="/consulta">Contactos</a>
+			        <a href="/FAQ">FAQ</a>
+	    		</li>
+	    		<li class="login-logout" sec:authorize="isAuthenticated()">
+	    			<a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+	    		</li>
+	      		<li class="login-logout" sec:authorize="!isAuthenticated()">
+	      			<a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+	      		</li>
+		  </ul>
+	    </nav>
+  	</header>
+  
+  	<main> 
+    	<h1>Atención al cliente</h1>
+    	<div class="container">
+            <span class="big-circle"></span>
+            <div class="form">
+                <div class="contact-info">
+                    <h3 class="title">Tus dudas al instante</h3>
+                    <p class="text">
+                        Si tienes alguna duda o problema puedes comunicarte con uno de nuestros canales telefonicos o por medio de tu correo electronico.
+                    </p>
+
+                    <div class="info">
+                        <div class="information">
+                            <i class="fa-solid fa-phone fa-2x"></i>
+                            <p>+51 918-684-351</p>
+                        </div>
+
+                        <div class="information">
+                            <i class="fa-solid fa-phone fa-2x"></i>
+                            <p>+51 918-684-668</p>
+                        </div>
+                    </div>
+
+                    <div class="social-medias">
+                        <p>Siguenos en :</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <span class="circle one"></span>
+                    <span class="circle two"></span>
+
+                    <form th:action="@{/consulta}" method="POST" autocomplete="off">
+                        <h3 class="title">Contactanos</h3>
+
+                        <div class="input-container focus">
+                            <select name="consultation" class="input" required>
+				                <option style="color: black;" value="Planes de Pago">Planes de Pago</option>
+				                <option style="color: black;" value="Torneos">Torneos</option>
+				                <option style="color: black;" value="Equipos">Equipos</option>
+				                <option style="color: black;" value="Jugadores">Jugadores</option>
+				                <option style="color: black;" value="Fixture">Fixture</option>
+				                <option style="color: black;" value="Tabla de Posiciones">Tabla de Posiciones</option>
+				                <option style="color: black;" value="Comunidad">Comunidad</option>
+				                <option style="color: black;" value="Otro">Otros</option>
+				              </select>
+                            <label for="consultation">Tipo de Consulta</label>
+                            <span>Tipo de Consulta</span>
+                        </div>
+                        
+                        <div class="input-container">
+                            <input type="text" name="name" class="input" required>
+                            <label for="name">Nombre</label>
+                            <span>Nombre</span>
+                        </div>
+                        
+                        <div class="input-container">
+                            <input type="email" name="toEmail" class="input" required>
+                            <label for="toEmail">Email</label>
+                            <span>Email</span>
+                        </div>
+                        
+                        <div class="input-container">
+                            <input type="text" name="subject" class="input" required>
+                            <label for="subject">Asunto</label>
+                            <span>Asunto</span>
+                        </div>
+                        
+                        <div class="input-container textarea">
+                            <textarea name="details" class="input" ></textarea>
+                            <label for="details">Detalles</label>
+                            <span>Detalles</span>
+                        </div>
+                        
+                        <input type="submit" value="Enviar" class="btn">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+  	</main>
+
+
+  	<section class="social-media">
+	  <ul>
+    	<li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+    	<li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+    	<li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+  	  </ul>
+	</section>
+	<footer>
+	  <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+	</footer>
+	
+	<script src="js/contact.js"></script>
+</body>
+</html>

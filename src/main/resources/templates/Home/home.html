@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="/css/homestyle.css"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+      <ul class="barra-menu">
+        <li>
+		  <a href="/home">Inicio</a>
+          <a href="/torneo">Torneo</a>
+          <a href="/seguirTorneo">Seguir Torneo</a>
+          <a href="/consulta">Contactos</a>
+          <a href="/FAQ">FAQ</a>
+        </li>
+        <li class="login-logout" sec:authorize="isAuthenticated()">
+          <a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+        </li>
+        <li class="login-logout" sec:authorize="!isAuthenticated()">
+          <a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="hero">
+    <h1>"¡Desata tu pasión por el fútbol y crea tu propio torneo de leyenda!"</h1>
+  </div>
+  <section class="contenedor" id="sobre-nosotros">
+    <div class="contenedor-nosotros">
+      <div class="checklist-nosotros">
+        <div class="nosotros">
+          <h2 class="sub">¡Todo para organizar tu torneo!</h2>
+          <p>ChampionShipCraft web, una plataforma en línea diseñada para simplificar y agilizar la administración de
+            campeonatos de fútbol. Nuestro objetivo principal es automatizar todas las etapas de la organización de un
+            torneo, brindando a los organizadores una plataforma intuitiva y eficiente.</p>
+        </div>
+        <div class="check-nosotros">
+          <p><i class="fa-solid fa-check" style="color: #37ecba;"></i>Generador de partidos automático</p>
+          <p><i class="fa-solid fa-check" style="color: #37ecba;"></i>Clasificación personalizada de jugadores</p>
+          <p><i class="fa-solid fa-check" style="color: #37ecba;"></i>Estadísticas de partidos</p>
+          <p><i class="fa-solid fa-check" style="color: #37ecba;"></i>Formulario de registro de equipos</p>
+          <p><i class="fa-solid fa-check" style="color: #37ecba;"></i>Crea y personaliza tu torneo</p>
+          <p><i class="fa-solid fa-check" style="color: #37ecba;"></i>Tabla de posiciones actualizada</p>
+        </div>
+      </div>
+      <img src="/imagenes/web.png" alt="">
+    </div>
+    <div class="line"></div>
+  </section>
+  <section class="contenedor">
+    <h2 class="subtitulo">Planes</h2>
+    <div class="barra-navegacion-planes">
+      <ul>
+        <li><a href="#mensual">Mensual</a></li>
+        <li><a href="#trimestral">Trimestral</a></li>
+        <li><a href="#semestral">Semestral</a></li>
+      </ul>
+    </div>
+    <div class="contenedor-planes">
+      <div class="plan">
+        <h3 class="plan-titulo">Torneo Pequeño</h3>
+        <div class="plan-icon-container">
+          <i class="fas fa-certificate plan-icon"></i>
+        </div>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Hasta 80 jugadores por
+          torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Hasta 10 equipos por
+          torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Puedes crear 5 torneos
+        </h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Fixtures</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Personaliza tu torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Torneo sin anuncios</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Tabla de posiciones
+          actualizada</h4>
+        <div class="plan-precio">
+          <span class="plan-moneda">$</span>
+          <span id="plan-pequeno-precio" class="plan-valor">2.90</span>
+          <span id="plan-pequeno-periodo" class="plan-periodo">/mes</span>
+        </div>
+        <input type="submit" class="plan-enlace" value="Obtener Plan">
+      </div>
+      <div class="plan">
+        <h3 class="plan-titulo">Torneo Intermedio</h3>
+        <div class="plan-icon-container">
+          <i class="fas fa-star plan-icon"></i>
+        </div>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Hasta 200 jugadores por
+          torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Hasta 20 equipos por
+          torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Puedes crear 10 torneos
+        </h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Fixtures</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Personaliza tu torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Torneo sin anuncios</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Tabla de posiciones
+          actualizada</h4>
+        <div class="plan-precio">
+          <span class="plan-moneda">$</span>
+          <span id="plan-intermedio-precio" class="plan-valor">5.90</span>
+          <span id="plan-intermedio-periodo" class="plan-periodo">/mes</span>
+        </div>
+        <input type="submit" class="plan-enlace" value="Obtener Plan">
+      </div>
+      <div class="plan">
+        <h3 class="plan-titulo">Torneo Premium</h3>
+        <div class="plan-icon-container">
+          <i class="fas fa-crown plan-icon"></i>
+        </div>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Número ilimitado de
+          jugadores</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Número ilimitado de
+          equipos</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Torneos ilimitados</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Fixtures</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Personaliza tu torneo</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Torneo sin anuncios</h4>
+        <h4 class="plan-descripcion"><i class="fa-solid fa-check" style="color: #37ecba;"></i>Tabla de posiciones
+          actualizada</h4>
+        <div class="plan-precio">
+          <span class="plan-moneda">$</span>
+          <span id="plan-premium-precio" class="plan-valor">7.90</span>
+          <span id="plan-premium-periodo" class="plan-periodo">/mes</span>
+        </div>
+        <input type="submit" class="plan-enlace" value="Obtener Plan">
+      </div>
+    </div>
+    <div class="line-plan"></div>
+  </section>
+
+  <section class="contenedor" id="servicio">
+    <h2 class="subtitulo">Nuestro Servicio</h2>
+    <div class="contenedor-servicio">
+      <img src="/imagenes/champ.png" alt="">
+      <div class="checklist-servicio">
+        <div class="service">
+          <h3 class="n-servicios"><span class="number">1</span>Crea tu Torneo</h3>
+          <p> Organiza y gestiona tu propio torneo de fútbol de manera sencilla
+            y eficiente. Personaliza las reglas, el número de equipos y más para
+            crear una experiencia única.</p>
+        </div>
+        <div class="service">
+          <h3 class="n-servicios"><span class="number">2</span>Facil de Usar</h3>
+          <p>Nuestra plataforma es intuitiva y fácil de manejar. Gestiona la
+            inscripción de equipos, programa los partidos y comparte información
+            relevante de manera rápida y sencilla. </p>
+        </div>
+        <div class="service">
+          <h3 class="n-servicios"><span class="number">3</span>Tabla de Posiciones y Rankings</h3>
+          <p>Mantén a todos los participantes al tanto de su desempeño con nuestra
+            completa tabla de posiciones y rankings. Clasifica a los equipos según puntos,
+            goles y diferencia de goles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Modal-->
+  <div class="modal">
+    <div class="modal-container">
+      <form method="post"  action="/pay">
+          <h3 class="title">Obten tu plan ideal</h3>
+
+          <div class="modal-input">
+            <span value="input">Tarjetas disponibles: </span>
+            <img src="imagenes/card-img.png">
+          </div>
+
+          <div class="modal-input">
+            <span value="input">Moneda: </span>
+            <input type="text" id="currency" name="currency" value="USD" readonly>
+          </div>
+
+          <div class="modal-input">
+            <span value="input">Metodo de pago: </span>
+            <input type="text" id="method" name="method" value="paypal" readonly>
+          </div>
+
+          <div class="modal-input">
+            <input type="radio" onclick="totalCalculate()" name="plan-torneo" value="pequeno" required>
+            <span value="radio">Torneo Pequeño</span>
+            <input type="radio" onclick="totalCalculate()" name="plan-torneo" value="intermedio" required>
+            <span value="radio">Torneo Intermedio</span>
+            <input type="radio" onclick="totalCalculate()" name="plan-torneo" value="premium" required>
+            <span value="radio">Torneo Premium</span>
+          </div>
+
+          <div class="modal-input">
+            <input type="radio" onclick="totalCalculate()" name="plan-mes" value="mensual" required>
+            <span value="radio">Mensual</span>
+            <input type="radio" onclick="totalCalculate()" name="plan-mes" value="trimestral" required>
+            <span value="radio">Trimestral</span>
+            <input type="radio" onclick="totalCalculate()" name="plan-mes" value="semestral" required>
+            <span value="radio">Semestral</span>
+          </div>
+
+          <div class="modal-price">
+            <span id="modal-price">Total: </span>
+            <span id="total-price">$ 0.00</span>
+            <input type="hidden" id="price" name="price" value="1" />
+            <input type="hidden" id="intent" name="intent" value="Sale" />
+            <input type="hidden" id="description" name="description" value="subcripcion a championship craft" />
+          </div>
+        <input type="submit" class="modal-submit-btn" value="Confirmar pago">
+        <input type="submit" class="modal-close-btn" value="Cancelar">
+      </form>
+    </div>
+  </div>
+
+  <section class="social-media">
+    <ul>
+      <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+      <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+      <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+    </ul>
+  </section>
+  <footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+  </footer>
+  <script src="/js/plan.js"></script>
+  <script src="/js/home-modal.js"></script>
+</body>
+
+</html>

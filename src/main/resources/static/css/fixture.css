@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Arial';
+  overflow-x: hidden; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 10%;
+  max-height: 10%;
+}
+/*Barra Lateral*/
+.hamburguer{
+	position: fixed;
+	top:85px;
+	right: 30px;
+	background: #fff;
+	width: 30px;
+	height: 30px;
+	cursor:pointer;
+	border-radius: 10px;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.menu-navegacion{
+	position: fixed;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    height: 100%;
+    background-image: linear-gradient(180deg, rgb(42, 245, 152) 0%, rgb(0, 158, 253) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    transition: transform .3s ease-in-out;
+    transform: translate(110%);
+    z-index: 10; /* Asegura que la barra lateral esté en un nivel superior */
+}
+.spread{
+    transform: translate(0);
+}
+.menu-navegacion a{
+    color: #fff;
+    text-decoration: none;
+}
+/*Seccion de Navegacion*/
+.barra-navegacion {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 50px; /* Ajusta la altura de la barra de navegación según tus necesidades */
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 20px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.barra-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.barra-menu li {
+    margin: 0 10px;
+}
+
+.barra-menu a {
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.barra-menu a:hover {
+    background-color: #37ecba;
+    color: #fff;
+}
+
+h1 {
+  background-color: #00C040;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+  margin: 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.container{
+	height: 400px;
+}
+/* Estilos para el formulario */
+.fixture-form {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para el combo box (select) */
+.jornada-select {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Estilos para el botón "Generar Fixture" */
+.generar-fixture-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos adicionales para resaltar el botón al pasar el cursor sobre él */
+.generar-fixture-btn:hover {
+    background-color: #0056b3;
+}
+.social-media {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  margin-top:3.5%;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+
+}
+
+.social-media ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.social-media a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.social-media i {
+  margin-bottom: 5px;
+  color: white;
+}
+
+footer {
+  margin-top: auto;
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+}
+
+
+footer p {
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Jugadores</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/jugadores.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+</head>
+<body>
+<header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+        <ul class="barra-menu">
+            <li>
+            	<a href="/home">Inicio</a>
+                <a href="/torneo">Torneo</a>
+          		<a href="/seguirTorneo">Seguir Torneo</a>
+          		<a href="/consulta">Contactos</a>
+          		<a href="/FAQ">FAQ</a>
+            </li>
+            <li class="login-logout" sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+            </li>
+            <li class="login-logout" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<h1>Jugadores</h1>
+
+<div class="form-group">
+    <select id="tipoSeleccion" name="tipoSeleccion" class="form-control custom-select" required onChange="mostrarSeccion()" defaultValue="jugadores">
+        <option value="jugadores">Inscribir Jugadores</option>
+        <option value="listaJugadores">Lista de Jugadores</option>
+    </select>
+</div>
+
+<section class="registrar-jugadores mostrar-por-defecto" id="registrarJugadores">
+
+    <form th:action="@{/registrar-jugador}" method="post">
+    <h2 style="text-align: center;">Inscripción de Jugadores</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" maxlength="30" required>
+                        <input type="hidden" id="idEquipo" name="idEquipo" th:value="${idEquipo}" />
+                        <small id="errorNombre" class="invalid-feedback"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellidos:</label>
+                        <input type="text" id="apellido" name="apellido" class="form-control" maxlength="30" required>
+                        <small id="errorApellido" class="invalid-feedback"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoDocumento">Tipo de Documento:</label>
+                        <select id="tipoDocumento" name="tipoDocumento" class="form-control" required>
+                            <option value="DNI">DNI</option>
+                            <option value="Carnet de Extranjería">Carnet de Extranjería</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numDocumentoDelegado">Número de Documento:</label>
+                        <input type="text" id="numDocumento" name="numDocumento" class="form-control" maxlength="8" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefonoDelegado">Número de Camiseta (Máximo 2 dígitos):</label>
+						<input type="number" id="numCamiseta" name="numCamiseta" class="form-control" max="99" required>                      
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="posicion">Posición:</label>
+                        <select id="posicion" name="posicion" class="form-control" required>
+                            <option value="Portero">Portero</option>
+                            <option value="Defensa">Defensa</option>
+                            <option value="Centrocampista">Centrocampista</option>
+                            <option value="Delantero">Delantero</option>       
+                        </select>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="button-container text-center mt-4 mb-4">
+    		<input type="submit" id="btnRegistrar" value="Registrar" class="btn btn-primary">		
+		</div>
+    </form>
+</section>
+<section class="listar-jugadores" id="listarJugadores">
+    <h2 style="text-align: center;">Jugadores del Equipo</h2>
+    <table id="jugadoresTable" class="table table-striped">
+        <thead>
+            <tr>
+            	<th>Nombre</th>
+                <th>Apellido</th>
+                <th>Número de Camiseta</th>
+                <th>Posición</th>
+                <th>Dni</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre la lista de jugadores -->
+            <tr th:each="jugador : ${jugadores}" th:data-idjugador="${jugador.idJugador}">
+            	<td th:text="${jugador.nombre}"></td>
+                <td th:text="${jugador.apellido}"></td>
+                <td th:text="${jugador.numCamiseta}"></td>
+                <td th:text="${jugador.posicion}"></td>
+                <td th:text="${jugador.numDocumento}"></td>
+                <td>
+					<!--Boton Actualizar -->
+                    <button class="btn btn-primary actualizar-jugador" data-toggle="modal" data-target="#actualizarModal"
+     				th:data-idequipo="${idEquipo}" th:data-idjugador="${jugador.idJugador}">Actualizar</button>
+					<!--Boton Eliminar -->
+                    <form th:action="@{/jugadores/eliminar}" method="post" class="d-inline" id="deleteForm">
+					    <input type="hidden" id="idEquipo" name="idEquipo" th:value="${idEquipo}" />
+					    <input type="hidden" th:name="idJugador" th:value="${jugador.idJugador}" />
+					    <button id="btn-action-delete" type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal" th:data-id-equipo="${jugador.idJugador}" th:onclick="'submitForm(' + ${idEquipo} + ', ' + ${jugador.idJugador} + ')'">
+						    <i class="fas fa-trash-alt"></i> Eliminar
+						</button>
+					</form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Modal de confirmación -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este jugador?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="confirmAndDelete()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- ... Modal de Actualizacion ... -->
+<div class="modal fade" id="actualizarModal" tabindex="-1" role="dialog" aria-labelledby="actualizarModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="actualizarModalLabel">Actualizar Jugador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formularioActualizar" action="/actualizar-jugador" method="post">
+                    <input type="hidden" id="idJugador" name="idJugador" th:value="${idJugador}"/>
+                    <input type="hidden" id="idEquipo" name="idEquipo" th:value="${idEquipo}" />
+                    <div class="form-group">
+                        <label for="nuevoNombre">Nuevo Nombre:</label>
+                        <input type="text" class="form-control" id="nuevoNombre" name="nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nuevoApellido">Nuevo Apellido:</label>
+                        <input type="text" class="form-control" id="nuevoApellido" name="apellido" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nuevoNumCamiseta">Nuevo Número de Camiseta:</label>
+                        <input type="number" class="form-control" id="nuevoNumCamiseta" name="numCamiseta" />
+                    </div>
+                    <div class="form-group">
+                        <label for="posicion">Posición:</label>
+                        <select id="posicion" name="posicion" class="form-control" required>
+                            <option value="Portero">Portero</option>
+                            <option value="Defensa">Defensa</option>
+                            <option value="Centrocampista">Centrocampista</option>
+                            <option value="Delantero">Delantero</option>       
+                        </select>
+                    </div>    
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+<section class="social-media">
+    <ul>
+        <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+        <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+        <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+    </ul>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+<script src="/js/Jugadores-secciones.js"></script>
+<script src="/js/tabla-jugadores.js"></script>
+<script src="/js/jugadores.js"></script>
+
+<footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+</footer>
+</body>
+</html>

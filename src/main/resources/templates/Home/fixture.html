@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Generar Fixture</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/fixture.css"> 
+</head>
+<body>
+<header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+        <ul class="barra-menu">
+            <li>
+            	<a href="/home">Inicio</a>
+                <a href="/torneo">Torneo</a>
+          		<a href="/seguirTorneo">Seguir Torneo</a>
+          		<a href="/consulta">Contactos</a>
+          		<a href="/FAQ">FAQ</a>
+            </li>
+            <li class="login-logout" sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+            </li>
+            <li class="login-logout" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <h1>Generar Fixture</h1>
+<div class="d-flex justify-content-center align-items-center" style="margin-top: 20px;">
+    <select id="jornadaSelect" class="jornada-select me-2">
+    	<option>Selecciona una jornada</option>
+        <option th:each="jornada : ${jornadas}" th:value="${jornada.idJornada}" th:text="${'Jornada ' + jornada.numFecha}"></option>
+    </select>
+    <form th:action="@{/generar-fixture}" method="post" class="fixture-form">
+        <input type="hidden" id="idTorneo" name="idTorneo" th:value="${idTorneo}" />
+        <button type="submit" class="btn btn-primary me-2">Generar Fixture</button>
+    </form>
+    <a th:href="@{/generar-pdf-fixture(idTorneo=${idTorneo})}" target="_blank" class="btn btn-success">Generar PDF</a>
+</div>
+
+
+
+    <div id="encuentrosContainer" class="container">
+        <table class="table table-striped" style="border: 1px solid black; margin-top: 40px;" >
+            <thead>
+                <tr>
+                    <th class="text-center">Equipo Local</th>
+                    <th class="text-center">Equipo Visita</th>
+                    <th class="text-center">Goles Local</th>
+                    <th class="text-center">Goles Visita</th>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Estado</th>
+                    <th class="text-center">Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody id="encuentrosBody">
+            </tbody>
+        </table>
+        
+    </div>
+    
+    
+<section class="social-media">
+    <ul>
+        <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+        <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+        <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+</footer>
+  <script src="/js/fixture.js"></script>
+</body>
+</html>

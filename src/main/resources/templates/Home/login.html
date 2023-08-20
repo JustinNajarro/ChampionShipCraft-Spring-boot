@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" type="text/css" href="/css/loginstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+</head>
+<body>
+  <main class="contenedor">
+    <section class="bloque-left">
+    
+    <div id="popup-message" class="popup">
+  <div id="error-message" th:if="${param.error}" class="message error" data-show="true">
+    Usuario o Contraseña Incorrecta.
+  </div>
+  <div id="logout-message" th:if="${param.logout}" class="message success" data-show="true">
+    Se ha cerrado la sesión.
+  </div>
+  <button id="btn-ok" class="btn" onclick="closePopup('popup-message')">Ok</button>
+</div>
+
+    </section>
+    <section class="bloque-right">
+      <div class="button-container">
+        <button type="button" id="btnLogin" name="btLogin" onclick="mostrarLoginFormulario()">Login</button>
+        <button type="button" id="btnRegistrarse" name="btRegistrarse" onclick="mostrarRegistroFormulario()">Registrarse</button>
+      </div>
+      <div id="loginContent">
+        <form th:action="@{/process_login}" method="post" class="login-form">
+          <h1>Bienvenido a ChampionshipCraft</h1>
+          <img src="/imagenes/logo.jpg" alt="Logo">
+          <h2>Crea torneos, registra equipos y desata<br>el espíritu competitivo</h2>
+          <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input id="username"  name="username" type="text" class="form-control" required autofocus="autofocus" placeholder="Ingrese Usuario">
+          </div>
+          <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Ingrese Contraseña">
+          </div>
+          <input type="submit" class="form-control btn btn-primary" name="login-submit" id="login-submit" value="Iniciar sesión">
+          <a href="password"><br> ¿Olvidaste tu Contraseña?</a>
+        </form>
+      </div>
+      <div id="registroContent" style="display: none;">
+        <form class="registro-form" th:action="@{/usuario/guardar}" method="post" th:object="${usuario}">
+          <h1>Registrarse en ChampionshipCraft</h1>
+          <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Nombres" required name="nombre" th:field="*{nombre}">
+          </div>
+          <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Apellidos" required name="apellidos" th:field="*{apellidos}">
+          </div>
+          <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Nombre de Usuario" required name="username" th:field="*{username}">
+          </div>
+          <div class="input-container">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Correo Electrónico" required name="correo" th:field="*{correo}">
+          </div>
+          <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Contraseña" required name="contraseña" th:field="*{contraseña}">
+          </div>
+          <button type="submit" name="btRegistrarseForm">Registrarse</button>
+        </form>
+      </div>
+      
+    </section>
+  </main>
+  <script src="/js/MessageLogin.js"></script>
+  <script src="/js/script.js"></script>
+
+</body>
+</html>

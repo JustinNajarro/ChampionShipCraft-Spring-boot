@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneos</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon.jpg">
+  <link rel="stylesheet" type="text/css" href="/css/tourmentstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+</head>
+<header>
+    <img src="/imagenes/logo.jpg" alt="Logo">
+    <nav class="barra-navegacion">
+      <ul class="barra-menu">
+    		<li>
+    			<a href="/home">Inicio</a>
+    			<a href="/torneo">Torneo</a>
+          		<a href="/seguirTorneo">Seguir Torneo</a>
+          		<a href="/consulta">Contactos</a>
+          		<a href="/FAQ">FAQ</a>
+    		</li>
+    		<li class="login-logout" sec:authorize="isAuthenticated()">
+    			<a th:href="@{/logout}" class="login-logout">Cerrar sesión</a>
+    		</li>
+      		<li class="login-logout" sec:authorize="!isAuthenticated()">
+      			<a th:href="@{/login}" class="login-logout">Iniciar sesión</a>
+      		</li>
+	  </ul>
+    </nav>
+  </header>
+<body>
+  <h1 class="titulo">
+  <a th:href="@{/torneo/registrar}" class="icono"><i class="fas fa-plus"></i></a>
+  <span>Mis Torneos</span>
+</h1>
+
+<section id="TorneoContent">
+
+  <table id="tablaTorneos">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+    	<th>Dirección</th>
+    	<th>Tipo</th>
+    	<th>Cantidad de Equipos</th>
+    	<th>Monto del Premio</th>
+    	<th>Acciones</th> <!-- Nueva columna -->
+      </tr>
+    </thead>
+    <tbody>
+  <tr th:each="torneo : ${torneos}">
+    <td th:text="${torneo.nombreTorneo}"></td>
+    <td th:text="${torneo.direccion}"></td>
+    <td th:text="${torneo.tipoTorneo}"></td>
+    <td th:text="${torneo.cantEquipos}"></td>
+    <td th:text="${torneo.montoPremio}"></td>
+    <td>
+        <input type="hidden" th:name="id" th:value="${torneo.idTorneo}" />
+        <button id="btn-action-delete" type="submit" class="btn-action-delete">
+        	<i class="fas fa-trash-alt"></i> 
+        </button>
+        <a th:href="@{/registrar-equipo(idTorneo=${torneo.idTorneo})}" class="btn-action-config">
+		  <i class="fas fa-cog"></i>
+		</a>
+		 <a th:href="@{/fixture(idTorneo=${torneo.idTorneo})}" class="btn-action-config">
+		    Fixture
+		</a>
+		<a th:href="@{/tablaPosiciones(idTorneo=${torneo.idTorneo})}" class="btn-action-config">
+		    Posiciones
+		</a>
+		
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- Modal - test -->
+<div class="torneoModal " id="torneoModal" tabindex="-1" aria-labelledby="torneoModalLabel" aria-hidden="true">
+    <div class="modal-content">
+      <form id="frm-delete-torneo" th:action="@{/torneo/eliminar}" method="post">
+      <div class="modal-body">
+        <h5 class="modal-title">¿Desea eliminar este torneo?</h5>
+      </div>
+      <div class="modal-footer">
+      	<input type="hidden" id="torneoId" name="id" /> <!-- Add hidden input field -->
+        <button id="btn-close-model" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="btn-delete-torneo" type="submit" class="btn btn-primary">Eliminar</button>
+      </div>
+      </form>
+    </div>
+</div>
+	</section>
+  <section class="social-media">
+  <ul>
+    <li><i class="fab fa-facebook"></i><a href="#">FACEBOOK</a></li>
+    <li><i class="fab fa-instagram"></i><a href="#">INSTAGRAM</a></li>
+    <li><i class="fab fa-twitter"></i><a href="#">TWITTER</a></li>
+  </ul>
+</section>
+  <footer>
+    <p>Derechos de autor &copy; 2023 - Championship Craft</p>
+  </footer>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/js/DataTable.js"></script>
+	<script src="/js/lateral-menu.js"></script>
+  	<script src="/js/ventanamodal-torneo.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</body>
+</html>

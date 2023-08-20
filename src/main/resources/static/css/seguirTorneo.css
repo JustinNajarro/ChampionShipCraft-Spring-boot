@@ -1,0 +1,69 @@
+/*Cuerpo de la vista*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Arial';
+}
+
+/*Cuerpo del main*/
+main {
+  height: auto;
+}
+
+/*Encabezado e imagen*/
+header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.barra-navegacion {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 50px; /* Ajusta la altura de la barra de navegación según tus necesidades */
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 20px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.barra-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.barra-menu li {
+    margin: 0 10px;
+}
+
+.barra-menu a {
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.barra-menu a:hover {
+    background-color: #37ecba;
+    color: #fff;
+}
+h1 {
+  background-color: #00C040;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+  margin: 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
