@@ -1,4 +1,4 @@
-# Created at 2023-08-21T01:27:59.960
+# Created at 2023-08-21T01:51:21.973
 Boot Manifest-JAR contains absolute paths in classpath 'D:\IDAT\CICLO IV\DAA\Practice\ChampionShipCraft\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root
